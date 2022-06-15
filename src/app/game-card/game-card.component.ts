@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Current, Upcoming } from '../models/gamesData.model';
 
 @Component({
   selector: 'app-game-card',
@@ -6,6 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./game-card.component.css'],
 })
 export class GameCardComponent {
-
-  @Input() game: any;
+  @Input() game: Current | Upcoming | undefined;
 }
