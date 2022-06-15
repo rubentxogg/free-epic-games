@@ -1,0 +1,53 @@
+<mat-card>
+  <ng-content *ngIf="true; then current; else upcoming"></ng-content>
+
+  <mat-card-header>
+    <mat-card-title>Game title</mat-card-title>
+    
+    <mat-card-subtitle>
+      Avaliable on: &nbsp; 18-04-1995 &nbsp;&nbsp; 22-05-2022
+    </mat-card-subtitle>
+  </mat-card-header>
+  <img
+    mat-card-image
+    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+    alt="game cover"
+  />
+  <mat-card-content>
+    <h3>
+      <mat-icon class="description-icon">description</mat-icon>Description
+    </h3>
+    <mat-divider></mat-divider>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat,
+      impedit, molestiae commodi facere eaque inventore vero odio placeat sit
+      hic excepturi quasi repudiandae ex maiores officiis, error officia sequi
+      ad.
+    </p>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-footer>
+    <a
+      href="https://store.epicgames.com/en-US/free-games?lang=en-US"
+      target="_blank"
+    >
+      <img
+        mat-card-image
+        src="../../assets/icons/epic_games_icon.png"
+        alt="epic games icon"
+      />
+    </a>
+  </mat-card-footer>
+</mat-card>
+
+<ng-template #current>
+  <button mat-raised-button color="accent">
+    <mat-icon>event_available</mat-icon>Current
+  </button>
+</ng-template>
+
+<ng-template #upcoming>
+  <button mat-raised-button disabled color="accent">
+    <mat-icon>event_note</mat-icon>Upcoming
+  </button>
+</ng-template>
