@@ -7,5 +7,7 @@ import { Current, Upcoming } from '../models/gamesData.model';
   styleUrls: ['./game-card.component.css'],
 })
 export class GameCardComponent {
-  @Input() game: Current | Upcoming | undefined;
+  @Input() games: Current[] | Upcoming[] | undefined;
+
+  @Input() isCurrent: boolean | undefined;
 }

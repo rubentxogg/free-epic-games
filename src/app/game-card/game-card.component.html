@@ -1,28 +1,21 @@
-<mat-card>
-  <ng-content *ngIf="true; then current; else upcoming"></ng-content>
+<mat-card *ngFor="let game of games; index as i">
+  <ng-content *ngIf="isCurrent; then current; else upcoming"></ng-content>
 
   <mat-card-header>
-    <mat-card-title>Game title</mat-card-title>
+    <mat-card-title>{{ game.title }}</mat-card-title>
 
     <mat-card-subtitle>
-      Avaliable on: &nbsp; 18-04-1995 &nbsp;&nbsp; 22-05-2022
+      <ng-content *ngIf="isCurrent; then currentSubtitle; else upcomingSubtitle"></ng-content>
     </mat-card-subtitle>
   </mat-card-header>
-  <img
-    mat-card-image
-    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-    alt="game cover"
-  />
+  <img mat-card-image [src]="game.keyImages[0].url" alt="game cover" />
   <mat-card-content>
     <h3>
       <mat-icon class="description-icon">description</mat-icon>Description
     </h3>
     <mat-divider></mat-divider>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat,
-      impedit, molestiae commodi facere eaque inventore vero odio placeat sit
-      hic excepturi quasi repudiandae ex maiores officiis, error officia sequi
-      ad.
+      {{ game.description }}
     </p>
   </mat-card-content>
   <mat-divider></mat-divider>
@@ -38,6 +31,31 @@
       />
     </a>
   </mat-card-footer>
+
+  <ng-template #currentSubtitle>
+    Avaliable on: &nbsp;
+        {{
+          game.promotions.promotionalOffers[0].promotionalOffers[0].startDate ||
+            game.promotions.upcomingPromotionalOffers
+        }}
+        &nbsp;&nbsp;
+        {{
+          game.promotions.promotionalOffers[0].promotionalOffers[0].startDate ||
+            game.promotions.upcomingPromotionalOffers
+        }}
+  </ng-template>
+  
+  <ng-template #upcomingSubtitle>
+    Avaliable on: &nbsp;
+    {{
+      game.promotions.upcomingPromotionalOffers[0].promotionalOffers[0].startDate
+    }}
+    &nbsp;&nbsp;
+    {{
+      game.promotions.upcomingPromotionalOffers[0].promotionalOffers[0].endDate
+    }}
+  </ng-template>
+  
 </mat-card>
 
 <ng-template #current>

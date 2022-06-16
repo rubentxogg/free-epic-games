@@ -13,11 +13,10 @@ export class AppComponent implements OnInit{
   public games: GamesData | undefined;
 
   ngOnInit(): void {
-    // this.freeEpicGamesService.getGamesData().subscribe({
-    //   next: (response) => {
-    //     this.games = response;
-    //     console.log(this.games.freeGames.current);
-    //   }
-    // })
+    this.freeEpicGamesService.getGamesData().subscribe({
+      next: (response) => {
+        this.games = response;
+      }
+    })
   }
 }
