@@ -11,12 +11,20 @@ export class AppComponent implements OnInit{
   constructor(private readonly freeEpicGamesService: FreeEpicGamesService) {}
 
   public games: GamesData | undefined;
+  public isError: boolean = false;
+  public isLoading: boolean = false;
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.freeEpicGamesService.getGamesData().subscribe({
       next: (response) => {
         this.games = response;
+        this.isLoading = false;
+      },
+      error: () => {
+        this.isLoading = false;
+        this.isError = true;
       }
-    })
+    });
   }
 }
