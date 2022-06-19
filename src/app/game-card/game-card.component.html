@@ -1,62 +1,67 @@
-<mat-card *ngFor="let game of games; index as i">
-  <ng-content *ngIf="isCurrent; then current; else upcoming"></ng-content>
+<div class="card-container">
+  <mat-card *ngFor="let game of games; index as i">
+    <ng-content *ngIf="isCurrent; then current; else upcoming"></ng-content>
 
-  <mat-card-header>
-    <mat-card-title>{{ game.title }}</mat-card-title>
+    <mat-card-header>
+      <mat-card-title>{{ game.title }}</mat-card-title>
 
-    <mat-card-subtitle>
-      <ng-content *ngIf="isCurrent; then currentSubtitle; else upcomingSubtitle"></ng-content>
-    </mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image [src]="game.keyImages[0].url" alt="game cover" />
-  <mat-card-content>
-    <h3>
-      <mat-icon class="description-icon">description</mat-icon>Description
-    </h3>
+      <mat-card-subtitle>
+        <ng-content
+          *ngIf="isCurrent; then currentSubtitle; else upcomingSubtitle"
+        ></ng-content>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="game.keyImages[0].url" alt="game cover" />
+    <mat-card-content>
+      <h3>
+        <mat-icon class="description-icon">description</mat-icon>Description
+      </h3>
+      <mat-divider></mat-divider>
+      <p>
+        {{ game.description }}
+      </p>
+    </mat-card-content>
     <mat-divider></mat-divider>
-    <p>
-      {{ game.description }}
-    </p>
-  </mat-card-content>
-  <mat-divider></mat-divider>
-  <mat-card-footer>
-    <a
-      href="https://store.epicgames.com/en-US/free-games?lang=en-US"
-      target="_blank"
-    >
-      <img
-        mat-card-image
-        src="../../assets/icons/epic_games_icon.png"
-        alt="epic games icon"
-      />
-    </a>
-  </mat-card-footer>
+    <mat-card-footer>
+      <a
+        href="https://store.epicgames.com/en-US/free-games?lang=en-US"
+        target="_blank"
+      >
+        <img
+          mat-card-image
+          src="../../assets/icons/epic_games_icon.png"
+          alt="epic games icon"
+        />
+      </a>
+    </mat-card-footer>
 
-  <ng-template #currentSubtitle>
-    Avaliable on: &nbsp;
-        {{
-          game.promotions.promotionalOffers[0].promotionalOffers[0].startDate ||
-            game.promotions.upcomingPromotionalOffers
-        }}
-        &nbsp;&nbsp;
-        {{
-          game.promotions.promotionalOffers[0].promotionalOffers[0].startDate ||
-            game.promotions.upcomingPromotionalOffers
-        }}
-  </ng-template>
-  
-  <ng-template #upcomingSubtitle>
-    Avaliable on: &nbsp;
-    {{
-      game.promotions.upcomingPromotionalOffers[0].promotionalOffers[0].startDate
-    }}
-    &nbsp;&nbsp;
-    {{
-      game.promotions.upcomingPromotionalOffers[0].promotionalOffers[0].endDate
-    }}
-  </ng-template>
-  
-</mat-card>
+    <ng-template #currentSubtitle>
+      Avaliable on: &nbsp;
+      {{
+        game.promotions.promotionalOffers[0].promotionalOffers[0].startDate ||
+          game.promotions.upcomingPromotionalOffers
+      }}
+      &nbsp;&nbsp;
+      {{
+        game.promotions.promotionalOffers[0].promotionalOffers[0].startDate ||
+          game.promotions.upcomingPromotionalOffers
+      }}
+    </ng-template>
+
+    <ng-template #upcomingSubtitle>
+      Avaliable on: &nbsp;
+      {{
+        game.promotions.upcomingPromotionalOffers[0].promotionalOffers[0]
+          .startDate
+      }}
+      &nbsp;&nbsp;
+      {{
+        game.promotions.upcomingPromotionalOffers[0].promotionalOffers[0]
+          .endDate
+      }}
+    </ng-template>
+  </mat-card>
+</div>
 
 <ng-template #current>
   <button mat-raised-button color="accent">
