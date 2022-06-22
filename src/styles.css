@@ -1,9 +1,14 @@
+:root {
+  --light-black: #2c2c2c;
+  --dark-black: #212121;
+}
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #2c2c2c;
+  min-height: 100vh;
+  background-color: var(--light-black);
 }
 
 .card-container {
