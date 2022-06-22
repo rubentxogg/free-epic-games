@@ -37,28 +37,16 @@
 
     <ng-template #currentSubtitle>
       Avaliable on: &nbsp;
-      {{
-        game.promotions.promotionalOffers[0].promotionalOffers[0].startDate ||
-          game.promotions.upcomingPromotionalOffers
-      }}
+      {{ game.promotions.promotionalOffers[0].promotionalOffers[0].startDate.toLocaleDateString('en-US') }}
       &nbsp;&nbsp;
-      {{
-        game.promotions.promotionalOffers[0].promotionalOffers[0].startDate ||
-          game.promotions.upcomingPromotionalOffers
-      }}
+      {{ game.promotions.promotionalOffers[0].promotionalOffers[0].startDate.toLocaleDateString('en-US') }}
     </ng-template>
 
     <ng-template #upcomingSubtitle>
       Avaliable on: &nbsp;
-      {{
-        game.promotions.upcomingPromotionalOffers[0].promotionalOffers[0]
-          .startDate
-      }}
+      {{ game.promotions.upcomingPromotionalOffers[0].promotionalOffers[0].startDate.toLocaleDateString('en-US') }}
       &nbsp;&nbsp;
-      {{
-        game.promotions.upcomingPromotionalOffers[0].promotionalOffers[0]
-          .endDate
-      }}
+      {{ game.promotions.upcomingPromotionalOffers[0].promotionalOffers[0].endDate.toLocaleDateString('en-US') }}
     </ng-template>
   </mat-card>
 </div>

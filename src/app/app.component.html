@@ -1,17 +1,16 @@
+<mat-toolbar class="header">
+  <span> <img src="../assets/icons/epic_games_icon2.png" width="45" alt="epic-games-icon">Free Epic Games!</span>
+</mat-toolbar>
+
 <ng-content *ngIf="isLoading; then loading; else loaded"></ng-content>
 
 <ng-template #loaded>
-  <ng-content *ngIf="isError; then error"></ng-content>
   <div class="card-container">
-    <app-game-card
-      [games]="games?.freeGames?.current"
-      [isCurrent]="true"
-    ></app-game-card>
+    <ng-container *ngIf="isError; then error"></ng-container>
+
+    <app-game-card [games]="games?.freeGames?.current" [isCurrent]="true"></app-game-card>
     
-    <app-game-card
-      [games]="games?.freeGames?.upcoming"
-      [isCurrent]="false"
-    ></app-game-card>
+    <app-game-card [games]="games?.freeGames?.upcoming" [isCurrent]="false"></app-game-card>
   </div>
 </ng-template>
 
@@ -19,6 +18,6 @@
 
 <ng-template #error>
   <span>
-    <mat-icon>error</mat-icon> Error, too many request (100 per month)
+    <mat-icon>error</mat-icon> Sorry, too many request (100 per month)
   </span>
 </ng-template>

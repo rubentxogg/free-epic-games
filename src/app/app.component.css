@@ -8,3 +8,17 @@ span {
 mat-icon {
   margin-right: 0.5rem;
 }
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.header span img {
+  margin-right: 0.6rem;
+}

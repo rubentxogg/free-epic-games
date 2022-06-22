@@ -1,6 +1,7 @@
 mat-card {
   max-width: 30rem;
   margin: 3rem;
+  margin-top: 4rem;
 }
 
 mat-divider {
