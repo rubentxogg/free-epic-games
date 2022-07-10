@@ -1,7 +1,12 @@
 mat-card {
-  max-width: 30rem;
+  min-width: 24rem;
+  min-height: 24rem;
   margin: 3rem;
   margin-top: 4rem;
+}
+
+mat-card img {
+  height: 25rem;
 }
 
 mat-divider {
@@ -38,4 +43,9 @@ mat-card-footer {
   justify-content: center;
   padding: 2rem;
   padding-bottom: 0;
+}
+
+.current-subtitle, .upcoming-subtitle {
+  display: flex;
+  flex-direction: column;
 }

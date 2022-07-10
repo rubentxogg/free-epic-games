@@ -1,8 +1,13 @@
-<mat-toolbar class="header">
-  <span> <img src="../assets/icons/epic_games_icon2.png" width="45" alt="epic-games-icon">Free Epic Games!</span>
-</mat-toolbar>
+<header>
+  <mat-toolbar class="header">
+    <span> <img src="../assets/icons/epic_games_icon2.png" width="45" alt="epic-games-icon">Free Epic Games!</span>
+  </mat-toolbar>
+</header>
 
-<ng-content *ngIf="isLoading; then loading; else loaded"></ng-content>
+<section>
+  <ng-container *ngIf="isLoading; then loading; else loaded"></ng-container>
+</section>
+
 
 <ng-template #loaded>
   <div class="card-container">
