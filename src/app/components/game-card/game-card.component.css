@@ -1,12 +1,11 @@
 mat-card {
   min-width: 24rem;
   min-height: 24rem;
-  margin: 3rem;
-  margin-top: 4rem;
+  margin-top: 5rem;
 }
 
 mat-card img {
-  height: 25rem;
+  height: 24rem;
 }
 
 mat-divider {

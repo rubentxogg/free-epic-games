@@ -8,6 +8,9 @@ import { Current, Upcoming } from '../../models/gamesData.model';
 })
 export class GameCardComponent {
   @Input() games: Current[] | Upcoming[] | undefined;
-
   @Input() isCurrent: boolean | undefined;
+
+  public dateWithoutTime(date: Date): string {
+    return date.toString().slice(0,10);
+  }
 }

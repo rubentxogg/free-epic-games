@@ -38,10 +38,10 @@
     <ng-template #currentSubtitle>
       <div class="current-subtitle">
         <div class="avaliable-on">
-          Avaliable on: {{ game.promotions.promotionalOffers[0].promotionalOffers[0].startDate }}
+          Avaliable on: {{ dateWithoutTime(game.promotions.promotionalOffers[0].promotionalOffers[0].startDate) }}
         </div>
         <div class="ends-on">
-          Ends on: {{ game.promotions.promotionalOffers[0].promotionalOffers[0].endDate }}
+          Ends on: {{ dateWithoutTime(game.promotions.promotionalOffers[0].promotionalOffers[0].endDate) }}
         </div>
       </div>
     </ng-template>
@@ -49,10 +49,10 @@
     <ng-template #upcomingSubtitle>
       <div class="upcoming-subtitle">
         <div class="avaliable-on">
-          Avaliable on: {{ game.promotions.upcomingPromotionalOffers[0].promotionalOffers[0].startDate }}
+          Avaliable on: {{ dateWithoutTime(game.promotions.upcomingPromotionalOffers[0].promotionalOffers[0].startDate) }}
         </div>
         <div class="ends-on">
-          Ends on: {{ game.promotions.upcomingPromotionalOffers[0].promotionalOffers[0].endDate }}
+          Ends on: {{ dateWithoutTime(game.promotions.upcomingPromotionalOffers[0].promotionalOffers[0].endDate) }}
         </div>
       </div>
     </ng-template>

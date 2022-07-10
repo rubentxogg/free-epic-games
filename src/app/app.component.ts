@@ -15,16 +15,16 @@ export class AppComponent implements OnInit{
   public isLoading: boolean = false;
 
   ngOnInit(): void {
-    // this.isLoading = true;
-    // this.freeEpicGamesService.getGamesData().subscribe({
-    //   next: (response) => {
-    //     this.games = response;
-    //     this.isLoading = false;
-    //   },
-    //   error: () => {
-    //     this.isLoading = false;
-    //     this.isError = true;
-    //   }
-    // });
+    this.isLoading = true;
+    this.freeEpicGamesService.getGamesData().subscribe({
+      next: (response) => {
+        this.games = response;
+        this.isLoading = false;
+      },
+      error: () => {
+        this.isLoading = false;
+        this.isError = true;
+      }
+    });
   }
 }
